@@ -1,0 +1,7 @@
+[workspace]
+default-members = ["scrabble-core"]
+members = [
+  "scrabble-core",
+  "scrabble-ui",
+  "xtask",
+]
