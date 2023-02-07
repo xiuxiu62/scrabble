@@ -3,6 +3,20 @@ name = "scrabble-core"
 version = "0.1.0"
 edition = "2021"
 
+[lib]
+name = "scrabble_core"
+path = "src/lib.rs"
+
 [dependencies]
 lazy_static = "1.4.0"
 thiserror = "1.0.38"
+
+[profile.release]
+opt-level = "s"
+strip = "debuginfo"
+lto = "thin"
+
+[profile.profiling]
+inherits = "release"
+strip = false
+debug = true

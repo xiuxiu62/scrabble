@@ -1,5 +1,5 @@
 [alias]
 xtask = "run --package xtask --"
-bundle = "xtask dist"
+dist  = "xtask dist"
 watch = "xtask watch"
 start = "xtask start"
