@@ -23,3 +23,9 @@ impl Default for Board<15> {
         Self::try_from(DEFAULT_15X15.to_owned()).unwrap()
     }
 }
+
+impl Default for Board<1> {
+    fn default() -> Self {
+        Self::try_from("s".to_owned()).unwrap()
+    }
+}

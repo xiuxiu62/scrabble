@@ -3,10 +3,10 @@ use std::fmt::Display;
 use crate::letter::{Letter, ParseLetterError};
 use thiserror::Error;
 
-#[derive(Debug)]
+#[derive(Debug, Clone, Copy, PartialEq)]
 pub struct Tile {
     pub letter: Option<Letter>,
-    ty: TileType,
+    pub ty: TileType,
 }
 
 impl Tile {
@@ -49,17 +49,7 @@ impl Display for Tile {
     }
 }
 
-#[derive(Debug, Error)]
-pub enum TileError {
-    #[error("Tile has not been filled")]
-    Empty,
-    #[error("Tile is not a valid Scrabble letter")]
-    Taken,
-    #[error(transparent)]
-    ParseLetter(#[from] ParseLetterError),
-}
-
-#[derive(Debug)]
+#[derive(Debug, Clone, Copy, PartialEq)]
 pub enum TileType {
     Standard,
     DoubleLetter,
@@ -112,6 +102,20 @@ impl TryFrom<&str> for TileType {
         }
     }
 }
+
+pub type TileResult<T> = Result<T, TileError>;
+
+#[derive(Debug, Error)]
+pub enum TileError {
+    #[error("Tile has not been filled")]
+    Empty,
+    #[error("Tile is not a valid Scrabble letter")]
+    Taken,
+    #[error(transparent)]
+    ParseLetter(#[from] ParseLetterError),
+}
+
+pub type ParseTileTypeResult<T> = Result<T, ParseTileTypeError>;
 
 #[derive(Debug, Error)]
 #[error("`{0}` is not a valid tile type")]

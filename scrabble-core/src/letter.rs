@@ -42,7 +42,7 @@ lazy_static! {
     };
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone, Copy, PartialEq)]
 pub struct Letter {
     pub char: char,
     pub value: usize,
