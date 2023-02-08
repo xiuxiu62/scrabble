@@ -10,6 +10,19 @@ crate-type = ["cdylib"]
 scrabble-core = { version = "0.1.0", path = "../scrabble-core" }
 wasm-bindgen = "0.2.84"
 yew = { version = "0.20.0", features = ["csr"] }
+js-sys = "0.3.61"
+
+[dependencies.web-sys]
+version = "0.3.61"
+features = [
+  "HtmlCanvasElement",
+  "WebGlBuffer",
+  "WebGlVertexArrayObject",
+  "WebGlRenderingContext",
+  "WebGlProgram",
+  "WebGlShader",
+  "WebGlUniformLocation"
+]
 
 [dev-dependencies]
 xtask-wasm = "0.1.10"

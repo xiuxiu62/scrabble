@@ -1029,8 +1029,10 @@ dependencies = [
 name = "scrabble-ui"
 version = "0.1.0"
 dependencies = [
+ "js-sys",
  "scrabble-core",
  "wasm-bindgen",
+ "web-sys",
  "xtask-wasm",
  "yew",
 ]
